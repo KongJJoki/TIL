@@ -258,3 +258,6 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 *.vcxproj
+*.vs
+*.vcxproj.filters
+*.sln
