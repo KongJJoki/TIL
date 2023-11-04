@@ -1,29 +1,30 @@
 ﻿#include <iostream>
-#include <string>
 
 int main()
 {
+    int nNowCount{};
     int nInputN{};
-    int nCount{};
-    int nNowNumber{};
-
-    nNowNumber = 666;
-    nCount = 1;
+    int nTmp{};
+    bool bIs666{};
 
     std::cin >> nInputN;
 
-    while (nCount != nInputN)
+    while (nNowCount != nInputN)
     {
-        std::string strTmp{};
-
-        nNowNumber++;
-
-        strTmp = std::to_string(nNowNumber);
-        if (strTmp.find("666") != std::string::npos)
+        nTmp++;
+        while (nTmp != 0 && !bIs666)
         {
-            nCount++;
+            if (nTmp % 1000 == 666)
+            {
+                nNowCount++;
+                bIs666 = true;
+            }
+            else
+            {
+                nTmp /= 10;
+            }
         }
     }
 
-    std::cout << nNowNumber;
+    std::cout << nTmp;
 }
