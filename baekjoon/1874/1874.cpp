@@ -1,55 +1,62 @@
 ﻿#include <iostream>
 #include <vector>
+#include <stack>
 
 int main()
 {
-    int nInputN{};
-    int nCursor{};
-    int nRemainNumberStart{};
-    int nVecTmpLength{};
-    std::vector<int> vecInput{};
-    std::vector<int> vecTmp{};
-    std::vector<char> vecResult{};
+	int nInputN{};
+	int nNumberCursor{};
+	int nResultLength{};
+	bool bValid{};
+	std::stack<int> stcInput{};
+	std::vector<int> vecInput{};
+	std::vector<char> vecResult{};
 
-    std::cin >> nInputN;
+	bValid = true;
+	nNumberCursor = 1; // 숫자 1 부터 넣기 시작
+	stcInput.push(0); // 처음부터 top봐야하는데 없으면 에러나니까 0 넣어주기
 
-    for (int i = 0; i < nInputN; i++) // 만들어야하는 수열 입력받기
-    {
-        int nTmp{};
-        std::cin >> nTmp;
-        vecInput.push_back(nTmp);
-    }
+	std::cin >> nInputN;
 
-    for (int i = 0; i < vecInput[0]; i++) //input수열의 첫번째 값 가져와서 거기까지 + 하기
-    {
-        vecTmp.push_back(i + 1);
-        vecResult.push_back('+');
-        nVecTmpLength++;
-    }
-    nRemainNumberStart = vecInput[0] + 1; // 첫번째 수까지 + 했으니까 이제 1~n 중 어디부터 숫자 남아있는지 표시
-    vecTmp.pop_back(); // 입력수열 첫번째 수 뽑기
-    nVecTmpLength--;
-    vecResult.push_back('-'); // 뽑았으니까 - 로 표시
 
-    nCursor = 1; // 첫번째 수는 고정이라 앞에서 했으니까 2번째 부터 시작
+	for (int i = 0; i < nInputN; i++)
+	{
+		int nTmp{};
+		std::cin >> nTmp;
 
-    while (nCursor <= nInputN - 1) // input수열의 인덱스 1부터 끝까지
-    {
-        if (vecInput[nCursor] < vecInput[nCursor - 1]) // 이번에 뽑아야할 숫자가 바로 전에 뽑은 숫자보다 작을 때 -> 수열에 이미 들어가 있으니까 찾아서 - 해야함
-        {
-            int nTmp{};
-            nTmp = nVecTmpLength - 1;
-            while (vecInput[nCursor] != vecTmp[nTmp]) // Tmp벡터의 맨 끝에서부터 내가 원하는 숫자까지 -- 하면서 찾기
-            {
-                vecTmp.pop_back();
-                vecResult.push_back('-');
-                nTmp--;
-            }
-        }
-    }
+		if(stcInput.top() < nTmp) // 스택의 맨 위 수가 입력받은 수보다 작은 경우
+		{
+			while (stcInput.top() < nTmp) // 스택의 맨 위 수가 입력받은 수보다 작으면 같아질때까지 + 해야함
+			{
+				stcInput.push(nNumberCursor);
+				nNumberCursor++; // 1 2 3 4 ... 순서로 넣어야하니까 숫자 넣고 다음 숫자로 가기위해서 ++ 하기
+				vecResult.push_back('+');
+				nResultLength++;
+			}
+		}
 
-    for (int i = 0; i < nInputN; i++)
-    {
-        std::cout << vecResult[i] << '\n';
-    }
+		if (stcInput.top() == nTmp) // 맨 위가 원하는 수랑 같으면 바로 pop
+		{
+			stcInput.pop();
+			vecResult.push_back('-');
+			nResultLength++;
+		}
+		else //top 이 원하는 수보다 큰 경우 -> 오름차순으로 넣기 때문에 이미 내가 원하는 수는 들어갔다가 - 로 나왔음 그래서 못함
+		{
+			bValid = false;
+			break;
+		}
+	}
+
+	if (bValid == false)
+	{
+		std::cout << "NO";
+	}
+	else
+	{
+		for (int i = 0; i < nResultLength; i++)
+		{
+			std::cout << vecResult[i] << '\n';
+		}
+	}
 }
