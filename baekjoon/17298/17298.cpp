@@ -29,17 +29,17 @@ int main()
         }
         if (stcTmp.empty())
         {
-            arrInput[i] = -1;
+            arrNGE[i] = -1;
         }
         else
         {
-            arrInput[i] = stcTmp.top();
+            arrNGE[i] = stcTmp.top();
         }
         stcTmp.push(arrInput[i]);
     }
 
     for (int i = 0; i < nArrLength; i++)
     {
-        std::cout << arrInput[i] << ' ';
+        std::cout << arrNGE[i] << ' ';
     }
 }
