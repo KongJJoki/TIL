@@ -261,11 +261,19 @@ FakesAssemblies/
 *.vs
 *.vcxproj.filters
 *.sln
-/*/*/*
-!/*/*/*.cpp
-!/*/*/*.py
-!/*/*/*.csharp
-!/*/*/*.ipynb
-!/*/*/*.cs
-!/*/*/*.csproj
-!/*/*/*.config
+# /*/*/*
+/*/*/*/*
+# !/*/*/*.cpp
+!/*/*/*/*.cpp
+# !/*/*/*.py
+!/*/*/*/*.py
+# !/*/*/*.csharp
+!/*/*/*/*.csharp
+# !/*/*/*.ipynb
+!/*/*/*/*.ipynb
+# !/*/*/*.cs
+!/*/*/*/*.cs
+# !/*/*/*.csproj
+!/*/*/*/*.csproj
+# !/*/*/*.config
+!/*/*/*/*.config
