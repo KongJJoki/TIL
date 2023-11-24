@@ -261,3 +261,11 @@ FakesAssemblies/
 *.vs
 *.vcxproj.filters
 *.sln
+/*/*/*
+!/*/*/*.cpp
+!/*/*/*.py
+!/*/*/*.csharp
+!/*/*/*.ipynb
+!/*/*/*.cs
+!/*/*/*.csproj
+!/*/*/*.config
