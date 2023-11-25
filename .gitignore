@@ -261,6 +261,9 @@ FakesAssemblies/
 *.vs
 *.vcxproj.filters
 *.sln
+
+# 폴더 경로 수정으로 인한 상대경로 추가
+# /TIL/Area/baekjoon/문제번호폴더 안에 cpp 파일을 ignore 안한다는뜻
 # /*/*/*
 /*/*/*/*
 # !/*/*/*.cpp
