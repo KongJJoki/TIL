@@ -281,3 +281,5 @@ FakesAssemblies/
 # !/*/*/*.config
 !/*/*/*/*.config
 !/*/*/*/*.html
+!/*/*/*/*.jpg
+!/*/*/*/*.png
