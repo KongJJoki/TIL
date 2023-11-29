@@ -280,3 +280,4 @@ FakesAssemblies/
 !/*/*/*/*.csproj
 # !/*/*/*.config
 !/*/*/*/*.config
+!/*/*/*/*.html

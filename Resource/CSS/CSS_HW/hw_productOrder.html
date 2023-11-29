@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .title {
+            color: rgb(181, 116, 243);
+            font-weight: bold;
+        }
+
+        .info label {
+            width: 70px;
+            display: inline-block;
+            margin: 7px 0px;
+            font-weight: bold;
+        }
+
+        .info input {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .order_info label {
+            width: 200px;
+            display: inline-block;
+            margin: 7px 0px;
+        }
+
+        .order_info input {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .noCircle {
+            list-style-type: none;
+        }
+
+        .button {
+            text-align: center;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>상품 주문서</h1>
+    <fieldset>
+        <legend class="title">개인 정보</legend>
+        <div class="info">
+            <ul class="noCircle">
+                <form method="post" action="test.php">
+                    <li>
+                        <label for="name">이름</label>
+                        <input id="name" type="text" placeholder="여백없이 입력">
+                    </li>
+                    <li>
+                        <label for="telephone">연락처</label>
+                        <input id="telephone" type="tel" placeholder="연락가능한 번호">
+                    </li>
+                </form>
+            </ul>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend class="title">배송지 정보</legend>
+        <div class="info">
+            <form method="post" action="test.php">
+                <ul class="noCircle">
+                    <li>
+                        <label for="address">주소</label>
+                        <input id="address" size=50 type="text">
+                    </li>
+                    <li>
+                        <label for="phonenumber">전화번호</label>
+                        <input id="phonenumber" type="tel">
+                    </li>
+                    <li style="display: flex;">
+                        <label for="memo">메 모</label>
+                        <textarea id="memo" cols="40" rows="3"></textarea>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend class="title">주문 정보</legend>
+        <form method="post" action="test.php">
+            <ul class="noCircle">
+                <li class="order_info">
+                    <input id="gwate" type="checkbox">
+                    <label for="gwate">과테말라 안티구아 (100g)</label>
+                    <input id="gwate" type="number" min="0" value="0">
+                    <label for="gwate">개</label>
+                </li>
+                <li class="order_info">
+                    <input id="gwate" type="checkbox">
+                    <label for="gwate">인도네시아 만델링 (100g)</label>
+                    <input id="gwate" type="number" min="0" value="0">
+                    <label for="gwate">개</label>
+                </li>
+                <li class="order_info">
+                    <input id="gwate" type="checkbox">
+                    <label for="gwate">탐라는도다(블렌딩) (100g)</label>
+                    <input id="gwate" type="number" min="0" value="0">
+                    <label for="gwate">개</label>
+                </li>
+            </ul>
+        </form>
+    </fieldset>
+    <br>
+    <div class="button">
+    <input type="submit" value="주문하기">
+    <input type="submit" value="다시 작성">
+    </div>
+</body>
+
+</html>
