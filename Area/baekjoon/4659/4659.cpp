@@ -2,35 +2,29 @@
 #include <string>
 
 bool Is_vowel(char cTmp);
-bool CheckString(std::string& strTmp, int nTmpLen);
+bool CheckString(std::string& strTmp);
 
 int main()
 {
-    int nTmpLen{};
-    std::string strTmp{};
-
     while(true)
     {
-        bool isTrue{};
-
-        isTrue = false;
-
+        std::string strTmp{};
         std::cin >> strTmp;
 
         if(strTmp == "end")
         {
             break;
         }
-
-        isTrue = CheckString(strTmp, nTmpLen);
-
-        if(isTrue)
-        {
-            std::cout << '<' << strTmp << '>' << " is acceptable." << '\n';
-        }
         else
         {
-            std::cout << '<' << strTmp << '>' << " is not acceptable." << '\n';
+            if(CheckString(strTmp))
+            {
+                std::cout << '<' << strTmp << "> is acceptable.\n";
+            }
+            else
+            {
+                std::cout << '<' << strTmp << "> is not acceptable.\n";
+            }
         }
     }
 }
@@ -44,7 +38,7 @@ bool Is_vowel(char cTmp)
     return false;
 }
 
-bool CheckString(std::string& strTmp, int nTmpLen)
+bool CheckString(std::string& strTmp)
 {
     bool isVowel{};
     int nConContinueCount{};
@@ -52,7 +46,7 @@ bool CheckString(std::string& strTmp, int nTmpLen)
 
     isVowel = false;
 
-    for(int i = 0; i < nTmpLen; i++)
+    for(int i = 0; i < strTmp.length(); i++)
     {
         if(Is_vowel(strTmp[i])) // 문자가 모음일때
         {
