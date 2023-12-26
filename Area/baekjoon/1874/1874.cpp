@@ -23,7 +23,7 @@ int main()
 	{
 		int nTmp{};
 		std::cin >> nTmp;
-
+		
 		if(stcInput.top() < nTmp) // 스택의 맨 위 수가 입력받은 수보다 작은 경우
 		{
 			while (stcInput.top() < nTmp) // 스택의 맨 위 수가 입력받은 수보다 작으면 같아질때까지 + 해야함
